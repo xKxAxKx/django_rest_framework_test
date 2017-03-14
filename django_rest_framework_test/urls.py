@@ -24,4 +24,5 @@ urlpatterns = [
     # blog.urlsをincludeする
     url(r'^api/', include(blog_router.urls)),
     url(r'^blog/', include(blog_url)),
+    url(r'^blog/', include('blog.urls', namespace='blog')),
 ]

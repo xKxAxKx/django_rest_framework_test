@@ -7,9 +7,14 @@ from .models import User, Entry
 from .serializer import UserSerializer, EntrySerializer
 
 # 静的ファイルを返すview
-def index(_):
+def index(request):
     html = open(
         os.path.join(settings.STATICFILES_DIRS[0], "vue_grid.html")).read()
+    return HttpResponse(html)
+
+def entry(request):
+    html = open(
+        os.path.join(settings.STATICFILES_DIRS[0], "index.html")).read()
     return HttpResponse(html)
 
 class UserViewSet(viewsets.ModelViewSet):
